@@ -240,7 +240,7 @@ public class Boleto extends javax.swing.JFrame implements Observer {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Entrada..:");
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("Carregar arquivo de Entrada.");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Local........:");
