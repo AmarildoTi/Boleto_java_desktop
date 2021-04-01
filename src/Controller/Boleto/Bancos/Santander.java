@@ -23,6 +23,7 @@ public class Santander implements Banco {
     /**
      * Metdodo responsavel por resgatar o numero do banco, coloque no return o codigo do seu banco
      */
+        @Override
 	public String getNumero() {
         return "033";
     }
@@ -46,6 +47,7 @@ public class Santander implements Banco {
     
     /**
      * Classe construtura, recebe como parametro a classe jboletobean
+     * @param boleto
      */
 	public Santander(GerarBoleto boleto) {
 		this.boleto = boleto;		
@@ -104,6 +106,7 @@ public class Santander implements Banco {
      * A ordem destes campos tambem variam de banco para banco, entao e so olhar na documentacao do seu banco
      * qual a ordem correta
      */
+        @Override
 	public String getCodigoBarras() {
 		
 		return getNumero() + String.valueOf(boleto.getMoeda()) + getCampo4() + getCampo5() + getCampoLivre();
@@ -115,6 +118,7 @@ public class Santander implements Banco {
      * E necessario tambem olhar a documentacao do banco para saber a ordem correta a linha digitavel
      */    
     
+        @Override
 	public String getLinhaDigitavel() {
 		return 	getCampo1().substring(0,5) + "." + getCampo1().substring(5) + "  " + 
 				getCampo2().substring(0,5) + "." + getCampo2().substring(5) + "  " +

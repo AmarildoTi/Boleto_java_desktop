@@ -17,6 +17,7 @@ public class Itau implements Banco {
     
     GerarBoleto boleto;
     
+    @Override
     public String getNumero() {
         return "341";
     }
@@ -88,10 +89,12 @@ public class Itau implements Banco {
         return campo;
     }
     
+    @Override
     public String getCodigoBarras() {
         return getNumero() + String.valueOf(boleto.getMoeda()) + String.valueOf(getCampo4()) + String.valueOf(getCampo5()) + String.valueOf(boleto.getCarteira()) + String.valueOf(boleto.getNossoNumero()) + String.valueOf(getDacNossoNumero()) + String.valueOf(boleto.getAgencia()) + boleto.getContaCorrente() + boleto.getDvContaCorrente() + "000";
     }
     
+    @Override
     public String getLinhaDigitavel() {
         return 	getCampo1().substring(0,5) + "." + getCampo1().substring(5) + "  " +
                 getCampo2().substring(0,5) + "." + getCampo2().substring(5) + "  " +
@@ -103,6 +106,7 @@ public class Itau implements Banco {
      * Recupera a carteira no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getCarteiraFormatted() {
         return boleto.getCarteira();
     }
@@ -111,6 +115,7 @@ public class Itau implements Banco {
      * Recupera a agencia / codigo cedente no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getAgenciaCodCedenteFormatted() {
         return boleto.getAgencia() + " / " + boleto.getContaCorrente() + "-" + boleto.getDvContaCorrente();
     }
@@ -119,6 +124,7 @@ public class Itau implements Banco {
      * Recupera o nossoNumero no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getNossoNumeroFormatted() {
         return String.valueOf(Long.parseLong(boleto.getNossoNumero()));
     }

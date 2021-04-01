@@ -3,14 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Amarildo/Programas/Java/java_DeskTop/Boleto/src/Controller/Utilidades.java</file>
-            <file>file:/C:/Amarildo/Programas/Java/java_DeskTop/Boleto/src/Controller/Boleto/Bancos/BancoBrasil.java</file>
-            <file>file:/C:/Amarildo/Programas/Java/java_DeskTop/Boleto/src/Controller/Spool.java</file>
-            <file>file:/C:/Amarildo/Programas/Java/java_DeskTop/Boleto/src/View/Boleto.java</file>
-            <file>file:/C:/Amarildo/Programas/Java/java_DeskTop/Boleto/src/Controller/Boleto/GerarBoleto.java</file>
-            <file>file:/C:/Amarildo/Programas/Java/java_DeskTop/Boleto/src/Controller/Boleto/Bancos/Bradesco.java</file>
-            <file>file:/C:/Amarildo/Programas/Java/java_DeskTop/Boleto/src/View/img/1.gif</file>
-            <file>file:/C:/Amarildo/Programas/Java/java_DeskTop/Boleto/src/Controller/Boleto/BoletoBancos.java</file>
+            <file>file:/C:/Amarildo/Programas/java/java_DeskTop/Boleto/src/Controller/Spool.java</file>
+            <file>file:/C:/Amarildo/Programas/java/java_DeskTop/Boleto/src/Controller/Dados.java</file>
+            <file>file:/C:/Amarildo/Programas/java/java_DeskTop/Boleto/src/Model/Banco.java</file>
         </group>
     </open-files>
 </project-private>

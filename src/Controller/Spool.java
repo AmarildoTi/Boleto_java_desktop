@@ -243,7 +243,7 @@ public class Spool {
     //********************************** Final Parte Da Frente Boleto banco do brasil
     
     
-         //********************************** Começo Parte Da Frente Boleto
+         //********************************** Começo Parte Da Frente Boleto bradesco
   //    LinhaF[Ind1][1]=Util.Space(1)+Eof.getString("Cpf");
   //    LinhaF[Ind1][2]=Util.Space(1)+Eof.getString("Contrato");
   //    LinhaF[Ind1][3]=Util.Space(1)+Eof.getString("Nome");
@@ -274,7 +274,7 @@ public class Spool {
   //    LinhaF[Ind1][28]=Util.Space(1)+Eof.getString("Endereco");
   //    LinhaF[Ind1][29]=Util.Space(1)+Util.Stuff(Eof.getString("Cep"),6,"-")+" - "+Eof.getString("Cidade").trim()+" - "+Eof.getString("Estado");
   //    LinhaF[Ind1][30]=Util.Space(1)+Bol.getCodigoBarras();
-    //********************************** Final Parte Da Frente Boleto
+    //********************************** Final Parte Da Frente Boleto bradesco
     
    
     //********************************** Começo Verso Do Boleto Endereçamento
