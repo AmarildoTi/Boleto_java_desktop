@@ -198,11 +198,6 @@ public class Spool {
 //Final Captura dados Para o Boleto Bancario Sets
 
 
-
-
-
-
-
      CodCif = (Config.getGera().equals("Produção") ? Eof.getString("CodCif") : Util.Padl(Eof.getString("id"),34,"0"));
 
      //********************************* Começo Canal do Spool
