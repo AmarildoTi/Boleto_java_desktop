@@ -17,6 +17,7 @@ public class Bradesco implements Banco {
     
     GerarBoleto boleto;
     
+    @Override
     public String getNumero() {
         return "237";
     }
@@ -68,6 +69,7 @@ public class Bradesco implements Banco {
         return campo;
     }
     
+    @Override
     public String getCodigoBarras() {
         String campo = 	getNumero() + String.valueOf(boleto.getMoeda()) + getCampo4() +
                 boleto.getFatorVencimento() + boleto.getValorTitulo() + boleto.getAgencia() +
@@ -76,6 +78,7 @@ public class Bradesco implements Banco {
         return campo;
     }
     
+    @Override
     public String getLinhaDigitavel() {
         return 	getCampo1().substring(0,5) + "." + getCampo1().substring(5) + "  " +
                 getCampo2().substring(0,5) + "." + getCampo2().substring(5) + "  " +
@@ -87,6 +90,7 @@ public class Bradesco implements Banco {
      * Recupera a carteira no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getCarteiraFormatted() {
         return boleto.getCarteira();
     }
@@ -95,6 +99,7 @@ public class Bradesco implements Banco {
      * Recupera a agencia / codigo cedente no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getAgenciaCodCedenteFormatted() {
         return boleto.getAgencia() + " / " + boleto.getContaCorrente() + "-" + boleto.getDvContaCorrente();
     }
@@ -103,6 +108,7 @@ public class Bradesco implements Banco {
      * Recupera o nossoNumero no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getNossoNumeroFormatted() {
         return getCarteiraFormatted().concat( " / " ).concat( boleto.getNossoNumero());
     }

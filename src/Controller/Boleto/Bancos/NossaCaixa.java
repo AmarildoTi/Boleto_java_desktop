@@ -12,16 +12,17 @@ import Controller.Boleto.GerarBoleto;
 /**
  * @author Amarildo dos Santos de Lima
  */
-public class NossaCaixa implements Banco {
+public final class NossaCaixa implements Banco {
     
     GerarBoleto boleto;
     
     private final String inicioNossoNumero = "99";
-    private String indetSistema = "9";
+    private final String indetSistema = "9";
     private String dv=null, dv1 = null, dv2 = null;
     private String codigoBarras = null;
     private String campoLivre = null;
     
+    @Override
     public String getNumero() {
         return "151";
     }
@@ -107,10 +108,12 @@ public class NossaCaixa implements Banco {
         return campo;
     }
     
+    @Override
     public String getCodigoBarras() {
         return this.codigoBarras;
     }
     
+    @Override
     public String getLinhaDigitavel() {
         return 	getCampo1().substring(0,5) + "." + getCampo1().substring(5) + "  " +
                 getCampo2().substring(0,5) + "." + getCampo2().substring(5) + "  " +
@@ -120,6 +123,8 @@ public class NossaCaixa implements Banco {
     
     /**
      * Métodos específicos do banco
+     * @param numero
+     * @return 
      */
     public String getDv43(String numero) {
         
@@ -247,6 +252,7 @@ public class NossaCaixa implements Banco {
      * Recupera a carteira no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getCarteiraFormatted() {
         return boleto.getCarteira();
     }
@@ -255,6 +261,7 @@ public class NossaCaixa implements Banco {
      * Recupera a agencia / codigo cedente no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getAgenciaCodCedenteFormatted() {
         return boleto.getAgencia() + " / " + boleto.getContaCorrente() + " " + boleto.getDvContaCorrente();
     }
@@ -263,6 +270,7 @@ public class NossaCaixa implements Banco {
      * Recupera a nossoNumero no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getNossoNumeroFormatted() {
         return boleto.getNossoNumero();
     }

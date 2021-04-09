@@ -19,6 +19,7 @@ public class BancoBrasil implements Banco {
     
     GerarBoleto boleto;
     
+    @Override
     public String getNumero() {
         return "001";
     }
@@ -63,6 +64,7 @@ public class BancoBrasil implements Banco {
         return campo;
     }
     
+    @Override
     public String getCodigoBarras() {
         String campo = 	getNumero() + String.valueOf(boleto.getMoeda()) + getCampo4() +
                 boleto.getFatorVencimento() + boleto.getValorTitulo() + getCampoLivre();
@@ -70,6 +72,7 @@ public class BancoBrasil implements Banco {
         return campo;
     }
     
+    @Override
     public String getLinhaDigitavel() {
         return 	getCampo1().substring(0,5) + "." + getCampo1().substring(5) + "  " +
                 getCampo2().substring(0,5) + "." + getCampo2().substring(5) + "  " +
@@ -81,6 +84,7 @@ public class BancoBrasil implements Banco {
      * Recupera a carteira no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getCarteiraFormatted() {
         return boleto.getCarteira();
     }
@@ -89,6 +93,7 @@ public class BancoBrasil implements Banco {
      * Recupera a agencia / codigo cedente no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getAgenciaCodCedenteFormatted() {
         return boleto.getAgencia() + " / " + boleto.getContaCorrente() + "-" + boleto.getDvContaCorrente();
     }

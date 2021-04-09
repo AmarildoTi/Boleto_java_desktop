@@ -23,12 +23,14 @@ public class BancoModelo implements Banco {
     /**
      * Metdodo responsavel por resgatar o numero do banco, coloque no return o codigo do seu banco
      */
+    @Override
     public String getNumero() {
         return "000";
     }
     
     /**
      * Classe construtura, recebe como parametro a classe jboletobean
+     * @param boleto
      */
     public BancoModelo(GerarBoleto boleto) {
         this.boleto = boleto;
@@ -88,6 +90,7 @@ public class BancoModelo implements Banco {
      * A ordem destes campos tambem variam de banco para banco, entao e so olhar na documentacao do seu banco
      * qual a ordem correta
      */
+    @Override
     public String getCodigoBarras() {
         return getNumero() + String.valueOf(boleto.getMoeda()) + String.valueOf(getCampo4()) + String.valueOf(getCampo5()) + "9" + boleto.getCodCliente() + "00000" + boleto.getNossoNumero() + boleto.getIOS() + boleto.getCarteira();
     }
@@ -96,6 +99,7 @@ public class BancoModelo implements Banco {
      * Metodo que concatena os campo para formar a linha digitavel
      * E necessario tambem olhar a documentacao do banco para saber a ordem correta a linha digitavel
      */
+    @Override
     public String getLinhaDigitavel() {
         return 	getCampo1().substring(0,5) + "." + getCampo1().substring(5) + "  " +
                 getCampo2().substring(0,5) + "." + getCampo2().substring(5) + "  " +
@@ -107,6 +111,7 @@ public class BancoModelo implements Banco {
      * Recupera a carteira no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getCarteiraFormatted() {
         return boleto.getCarteira();
     }
@@ -115,6 +120,7 @@ public class BancoModelo implements Banco {
      * Recupera a agencia / codigo cedente no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getAgenciaCodCedenteFormatted() {
         return boleto.getAgencia() + " / " + boleto.getContaCorrente() + "-" + boleto.getDvContaCorrente();
     }
@@ -123,6 +129,7 @@ public class BancoModelo implements Banco {
      * Recupera o nossoNumero no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getNossoNumeroFormatted() {
         return String.valueOf(Long.parseLong(boleto.getNossoNumero()));
     }

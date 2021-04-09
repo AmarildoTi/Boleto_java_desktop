@@ -13,7 +13,7 @@ import Controller.Boleto.GerarBoleto;
  * Classe responsavel em criar os campos do Sicredi
  * @author Amarildo dos Santos de Lima
  */
-public class Sicredi implements Banco {
+public final class Sicredi implements Banco {
 
     GerarBoleto boleto;
 
@@ -64,6 +64,7 @@ public class Sicredi implements Banco {
         return campo;
     }
 
+    @Override
     public String getCodigoBarras() {
         String campo1 = getNumero();
         String campo2 = String.valueOf(boleto.getMoeda());
@@ -76,6 +77,7 @@ public class Sicredi implements Banco {
         return campo;
     }
 
+    @Override
     public String getLinhaDigitavel() {
         String campo = "";
         String campo1 = getCampo1();

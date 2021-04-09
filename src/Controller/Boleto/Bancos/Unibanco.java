@@ -19,12 +19,14 @@ public class Unibanco implements Banco {
     /**
      * Metdodo responsavel por resgatar o numero do banco, coloque no return o codigo do seu banco
      */
+    @Override
     public String getNumero() {
         return "409";
     }
     
     /**
      * Método paticular do unibanco
+     * @return 
      */
     public String getCvt() {
         return "5";
@@ -32,14 +34,15 @@ public class Unibanco implements Banco {
     
     /**
      * Método paticular do unibanco
+     * @return 
      */
     public String getZero() {
         return "00";
     }
     
     /**
-     * Metodo para gerar o digito verificador do nosso numero.
-     * o parametro deve conter somente numeros
+     * Metodo para gerar o digito verificador do nosso numero.o parametro deve conter somente numeros
+     * @return
      */
     public String getDvNossoNumero() {
         return boleto.getModulo11(String.valueOf(Integer.parseInt(boleto.getNossoNumero())), 9);
@@ -51,6 +54,7 @@ public class Unibanco implements Banco {
     
     /**
      * Classe construtura, recebe como parametro a classe jboletobean
+     * @param boleto
      */
     public Unibanco(GerarBoleto boleto) {
         this.boleto = boleto;
@@ -110,6 +114,7 @@ public class Unibanco implements Banco {
      * A ordem destes campos tambem variam de banco para banco, entao e so olhar na documentacao do seu banco
      * qual a ordem correta
      */
+    @Override
     public String getCodigoBarras() {
         return getNumero() + String.valueOf(boleto.getMoeda()) + String.valueOf(getCampo4()) + String.valueOf(getCampo5()) + getCvt() + boleto.getCodCliente() + getZero() + boleto.getNossoNumero() + getDvNossoNumero();
     }
@@ -119,6 +124,7 @@ public class Unibanco implements Banco {
      * E necessario tambem olhar a documentacao do banco para saber a ordem correta a linha digitavel
      */
     
+    @Override
     public String getLinhaDigitavel() {
         return 	getCampo1().substring(0,5) + "." + getCampo1().substring(5) + "  " +
                 getCampo2().substring(0,5) + "." + getCampo2().substring(5) + "  " +
@@ -130,6 +136,7 @@ public class Unibanco implements Banco {
      * Recupera a carteira no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getCarteiraFormatted() {
         return boleto.getCarteira();
     }
@@ -138,6 +145,7 @@ public class Unibanco implements Banco {
      * Recupera a agencia / codigo cedente no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getAgenciaCodCedenteFormatted() {
         return boleto.getAgencia() + " / " + boleto.getContaCorrente() + "-" + boleto.getDvContaCorrente();
     }
@@ -146,6 +154,7 @@ public class Unibanco implements Banco {
      * Recupera o nossoNumero no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getNossoNumeroFormatted() {
         return String.valueOf(Long.parseLong(boleto.getNossoNumero()));
     }

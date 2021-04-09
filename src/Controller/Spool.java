@@ -28,8 +28,7 @@ public class Spool {
    private final String[][] LinhaF = new String[3][31];
    private final String[][] LinhaV = new String[3][9];
    private boolean Fim;
-   //private static final int BRADESCO = 237;
-   private static final int BANCO_DO_BRASIL = 001;
+   private static final int BRADESCO = 237;
 
     Configura Config =  Configura.getInstance();   
     Utilidades Util = new Utilidades();
@@ -146,70 +145,38 @@ public class Spool {
  //Começo Exibe Nome do Arquivo de Saida de Contadores      
    
 //Começo Captura dados Para o Boleto Bancario Sets
-//  Bol.setLocalPagamento("Pagável em qualquer agência até o Vencimento");
-//  Bol.setLocalPagamento2("Após Vencimento somente no Bradesco");
-//  Bol.setCedente("Hoepers S/A");
-//  Bol.setAgencia("0324");
-//  Bol.setDvAgencia("7");
-//  Bol.setContaCorrente("0169983");
-//  Bol.setDvContaCorrente("0");
-//  Bol.setCarteira("06");                      
-//  Bol.setEspecieDocumento("RC");
-//  Bol.setAceite("N");
-//  Bol.setDataDocumento(Util.DataSystema().substring(0, 10));
-//  Bol.setDataProcessamento(Util.DataSystema().substring(0, 10));
-//  Bol.setDataVencimento(Eof.getString("Vencimento"));
-//  Bol.setNossoNumero(Util.Padl(Util.RetZeros(Eof.getString("NossoNum")).trim(),11,"0"));
-//  Bol.setDvNossoNumero(Util.Padl(Util.RetZeros(Eof.getString("NossoNum")).trim(),11,"0"));
-//  Bol.setNoDocumento(Util.Padl(Util.RetZeros(Eof.getString("NossoNum")).trim(),11,"0"));
-//  Bol.setValorBoleto(Eof.getString("ValorTot"));
-//  Bol.setInstrucao1("APOS O VENCIMENTO COBRAR MULTA DE 2%");
-//  Bol.setInstrucao2("APOS O VENCIMENTO COBRAR R$ 0,50 POR DIA");
-//  Bol.setInstrucao3("");
-//  Bol.setInstrucao4("");
-//  Bol.setInstrucao5("");
-//  BoletoBancos boleto = new BoletoBancos(Bol,BRADESCO); // Obs: Caso seja Necessario Mudar o Bando Declarar a Variavel conforme Exemplo = public static final int BRADESCO = 237;
-//Final Captura dados Para o Boleto Bancario Sets
-
-//Começo Captura dados Para o Boleto Bancario Sets
   Bol.setLocalPagamento("Pagável em qualquer agência até o Vencimento");
   Bol.setLocalPagamento2("Após Vencimento somente no Bradesco");
-  Bol.setCedente("BANCO DO BRASIL S/A");
-  Bol.setAgencia("2234");
-  Bol.setContaCorrente("99747159");
-  Bol.setDvContaCorrente("X");
-  Bol.setMoeda("9");
-  Bol.setCarteira("17");                      
-  Bol.setEspecieDocumento("ND");
+  Bol.setCedente("Hoepers S/A");
+  Bol.setAgencia("0324");
+  Bol.setDvAgencia("7");
+  Bol.setContaCorrente("0169983");
+  Bol.setDvContaCorrente("0");
+  Bol.setCarteira("06");                      
+  Bol.setEspecieDocumento("RC");
   Bol.setAceite("N");
   Bol.setDataDocumento(Util.DataSystema().substring(0, 10));
   Bol.setDataProcessamento(Util.DataSystema().substring(0, 10));
-  Bol.setDataVencimento("25/05/2021");
-  Bol.setNumConvenio("2836585");
-  Bol.setNossoNumero("0092746220");
-  Bol.setNoDocumento("81020000107720546");
-  Bol.setValorBoleto("001");
+  Bol.setDataVencimento(Eof.getString("Vencimento"));
+  Bol.setNossoNumero(Util.Padl(Util.RetZeros(Eof.getString("NossoNum")).trim(),11,"0"));
+  Bol.setDvNossoNumero(Util.Padl(Util.RetZeros(Eof.getString("NossoNum")).trim(),11,"0"));
+  Bol.setNoDocumento(Util.Padl(Util.RetZeros(Eof.getString("NossoNum")).trim(),11,"0"));
+  Bol.setValorBoleto(Eof.getString("ValorTot"));
   Bol.setInstrucao1("APOS O VENCIMENTO COBRAR MULTA DE 2%");
   Bol.setInstrucao2("APOS O VENCIMENTO COBRAR R$ 0,50 POR DIA");
   Bol.setInstrucao3("");
   Bol.setInstrucao4("");
   Bol.setInstrucao5("");
-  BoletoBancos boleto = new BoletoBancos(Bol,BANCO_DO_BRASIL); // Obs: Caso seja Necessario Mudar o Bando Declarar a Variavel conforme Exemplo = public static final int BRADESCO = 237;
+  BoletoBancos boleto = new BoletoBancos(Bol,BRADESCO); // Obs: Caso seja Necessario Mudar o Bando Declarar a Variavel conforme Exemplo = public static final int BRADESCO = 237;
 //Final Captura dados Para o Boleto Bancario Sets
-
-
-
-
-
-
 
      CodCif = (Config.getGera().equals("Produção") ? Eof.getString("CodCif") : Util.Padl(Eof.getString("id"),34,"0"));
 
      //********************************* Começo Canal do Spool
        TipoX[Ind1]="01"+Util.Space(1)+CodCif;
      //********************************* Final Canal do Spool
-
-     //********************************** Começo Parte Da Frente Boleto banco do brasil
+    
+    //********************************** Começo Parte Da Frente Boleto bradesco
       LinhaF[Ind1][1]=Util.Space(1)+Eof.getString("Cpf");
       LinhaF[Ind1][2]=Util.Space(1)+Eof.getString("Contrato");
       LinhaF[Ind1][3]=Util.Space(1)+Eof.getString("Nome");
@@ -219,13 +186,13 @@ public class Spool {
       LinhaF[Ind1][7]=Util.Space(1)+Bol.getLocalPagamento2();
       LinhaF[Ind1][8]=Util.Space(1)+Bol.getCedente();
       LinhaF[Ind1][9]=Util.Space(1)+Bol.getDataVencimento();
-      LinhaF[Ind1][10]=Util.Space(1)+Bol.getAgencia()+"/"+Bol.getContaCorrente()+"-"+Bol.getDvContaCorrente();
+      LinhaF[Ind1][10]=Util.Space(1)+Bol.getAgencia()+"-"+Bol.getDvAgencia()+"/"+Bol.getContaCorrente()+"-"+Bol.getDvContaCorrente();
       LinhaF[Ind1][11]=Util.Space(1)+Bol.getDataDocumento();
       LinhaF[Ind1][12]=Util.Space(1)+Bol.getNoDocumento();
       LinhaF[Ind1][13]=Util.Space(1)+Bol.getEspecieDocumento();
       LinhaF[Ind1][14]=Util.Space(1)+Bol.getAceite();
       LinhaF[Ind1][15]=Util.Space(1)+Bol.getDataProcessamento();
-      LinhaF[Ind1][16]=Util.Space(1)+Bol.getNumConvenio()+ Bol.getNossoNumero();
+      LinhaF[Ind1][16]=Util.Space(1)+Bol.getCarteira()+"/"+Bol.getNossoNumero()+"-"+Bol.getDvNossoNumero();
       LinhaF[Ind1][17]=Util.Space(1)+Bol.getCarteira();
       LinhaF[Ind1][18]=Util.Space(1)+"R$";
       LinhaF[Ind1][19]=Util.Space(1)+Util.FormataMoeda(Eof.getString("ValorTot"));
@@ -240,41 +207,7 @@ public class Spool {
       LinhaF[Ind1][28]=Util.Space(1)+Eof.getString("Endereco");
       LinhaF[Ind1][29]=Util.Space(1)+Util.Stuff(Eof.getString("Cep"),6,"-")+" - "+Eof.getString("Cidade").trim()+" - "+Eof.getString("Estado");
       LinhaF[Ind1][30]=Util.Space(1)+Bol.getCodigoBarras();
-    //********************************** Final Parte Da Frente Boleto banco do brasil
-    
-    
-         //********************************** Começo Parte Da Frente Boleto
-  //    LinhaF[Ind1][1]=Util.Space(1)+Eof.getString("Cpf");
-  //    LinhaF[Ind1][2]=Util.Space(1)+Eof.getString("Contrato");
-  //    LinhaF[Ind1][3]=Util.Space(1)+Eof.getString("Nome");
-  //    LinhaF[Ind1][4]=Util.Space(1)+"R$"+Util.Space(01)+Util.FormataMoeda(Eof.getString("ValorTot"));
-  //    LinhaF[Ind1][5]=Util.Space(1)+Bol.getLinhaDigitavel();
-  //    LinhaF[Ind1][6]=Util.Space(1)+Bol.getLocalPagamento();
-  //    LinhaF[Ind1][7]=Util.Space(1)+Bol.getLocalPagamento2();
-  //    LinhaF[Ind1][8]=Util.Space(1)+Bol.getCedente();
-  //    LinhaF[Ind1][9]=Util.Space(1)+Bol.getDataVencimento();
-  //    LinhaF[Ind1][10]=Util.Space(1)+Bol.getAgencia()+"-"+Bol.getDvAgencia()+"/"+Bol.getContaCorrente()+"-"+Bol.getDvContaCorrente();
-  //    LinhaF[Ind1][11]=Util.Space(1)+Bol.getDataDocumento();
-  //    LinhaF[Ind1][12]=Util.Space(1)+Bol.getNoDocumento();
-  //    LinhaF[Ind1][13]=Util.Space(1)+Bol.getEspecieDocumento();
-  //    LinhaF[Ind1][14]=Util.Space(1)+Bol.getAceite();
-  //    LinhaF[Ind1][15]=Util.Space(1)+Bol.getDataProcessamento();
-  //    LinhaF[Ind1][16]=Util.Space(1)+Bol.getCarteira()+"/"+Bol.getNossoNumero()+"-"+Bol.getDvNossoNumero();
-  //    LinhaF[Ind1][17]=Util.Space(1)+Bol.getCarteira();
-  //    LinhaF[Ind1][18]=Util.Space(1)+"R$";
-  //    LinhaF[Ind1][19]=Util.Space(1)+Util.FormataMoeda(Eof.getString("ValorTot"));
-  //    LinhaF[Ind1][20]=Util.Space(1);
-  //    LinhaF[Ind1][21]=Util.Space(1)+Bol.getInstrucao1();
-  //    LinhaF[Ind1][22]=Util.Space(1)+Bol.getInstrucao2();
-  //    LinhaF[Ind1][23]=Util.Space(1)+Bol.getInstrucao3();
-  //    LinhaF[Ind1][24]=Util.Space(1)+Bol.getInstrucao4();
-  //    LinhaF[Ind1][25]=Util.Space(1)+Bol.getInstrucao5();
-  //    LinhaF[Ind1][26]=Util.Space(1);
-  //    LinhaF[Ind1][27]=Util.Space(1)+Eof.getString("Nome");
-  //    LinhaF[Ind1][28]=Util.Space(1)+Eof.getString("Endereco");
-  //    LinhaF[Ind1][29]=Util.Space(1)+Util.Stuff(Eof.getString("Cep"),6,"-")+" - "+Eof.getString("Cidade").trim()+" - "+Eof.getString("Estado");
-  //    LinhaF[Ind1][30]=Util.Space(1)+Bol.getCodigoBarras();
-    //********************************** Final Parte Da Frente Boleto
+    //********************************** Final Parte Da Frente Boleto bradesco
     
    
     //********************************** Começo Verso Do Boleto Endereçamento

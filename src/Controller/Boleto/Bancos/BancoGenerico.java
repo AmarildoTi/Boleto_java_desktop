@@ -23,12 +23,14 @@ public class BancoGenerico implements Banco {
   /**
    * Metdodo responsavel por resgatar o numero do banco, coloque no return o codigo do seu banco
    */
+  @Override
   public String getNumero() {
     return "99999";
   }
 
   /**
    * Classe construtura, recebe como parametro a classe jboletobean
+     * @param boleto
    */
   public BancoGenerico(GerarBoleto boleto) {
     this.boleto = boleto;
@@ -77,6 +79,7 @@ public class BancoGenerico implements Banco {
    * A ordem destes campos tambem variam de banco para banco, entao e so olhar na documentacao do seu banco
    * qual a ordem correta
    */
+  @Override
   public String getCodigoBarras() {
       return "0000000000000000000000000000000000000000";
   }
@@ -85,6 +88,7 @@ public class BancoGenerico implements Banco {
    * Metodo que concatena os campo para formar a linha digitavel
    * E necessario tambem olhar a documentacao do banco para saber a ordem correta a linha digitavel
    */
+  @Override
   public String getLinhaDigitavel() {
       return "          >>>>>>>>> COBRANCA EM CARTEIRA <<<<<<<<<";
   }
@@ -93,6 +97,7 @@ public class BancoGenerico implements Banco {
    * Recupera a carteira no padrao especificado pelo banco
    * @author Amarildo dos Santos de Lima
    */
+  @Override
   public String getCarteiraFormatted() {
     return ""; //boleto.getCarteira();
   }
@@ -101,6 +106,7 @@ public class BancoGenerico implements Banco {
    * Recupera a agencia / codigo cedente no padrao especificado pelo banco
    * @author Amarildo dos Santos de Lima
    */
+  @Override
   public String getAgenciaCodCedenteFormatted() {
     return ""; //return boleto.getAgencia() + " / " + boleto.getContaCorrente() + "-" + boleto.getDvContaCorrente();
   }
@@ -109,6 +115,7 @@ public class BancoGenerico implements Banco {
    * Recupera o nossoNumero no padrao especificado pelo banco
    * @author Amarildo dos Santos de Lima
    */
+  @Override
   public String getNossoNumeroFormatted() {
     return ""; //String.valueOf(Integer.parseInt(boleto.getNossoNumero()));
   }

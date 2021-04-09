@@ -23,6 +23,7 @@ public class CaixaEconomica implements Banco {
     /**
      * Metdodo responsavel por resgatar o numero do banco, coloque no return o codigo do seu banco
      */
+    @Override
     public String getNumero() {
         return "104";
     }
@@ -94,6 +95,7 @@ public class CaixaEconomica implements Banco {
      * A ordem destes campos tambem variam de banco para banco, entao e so olhar na documentacao do seu banco
      * qual a ordem correta
      */
+    @Override
     public String getCodigoBarras() {
         return getNumero() + String.valueOf(boleto.getMoeda()) + String.valueOf(getCampo4()) + String.valueOf(getCampo5()) + getCampoLivre();
     }
@@ -102,6 +104,7 @@ public class CaixaEconomica implements Banco {
      * Metodo que concatena os campo para formar a linha digitavel
      * E necessario tambem olhar a documentacao do banco para saber a ordem correta a linha digitavel
      */
+    @Override
     public String getLinhaDigitavel() {
         return getCampo1().substring(0, 5) + "." + getCampo1().substring(5) + "  " + getCampo2().substring(0, 5) + "." + getCampo2().substring(5) + "  " + getCampo3().substring(0, 5) + "." + getCampo3().substring(5) + "  " + getCampo4() + "  " + getCampo5();
     }
@@ -110,6 +113,7 @@ public class CaixaEconomica implements Banco {
      * Recupera a carteira no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getCarteiraFormatted() {
         return "SR";
     }
@@ -118,6 +122,7 @@ public class CaixaEconomica implements Banco {
      * Recupera a carteira no padrao especificado pelo banco
      * @author Amarildo dos Santos de Lima
      */
+    @Override
     public String getAgenciaCodCedenteFormatted() {
 
         Integer f1 = Integer.parseInt(boleto.getAgencia().substring(0, 4));
@@ -128,6 +133,7 @@ public class CaixaEconomica implements Banco {
         return String.format("%04d.%03d.%08d-%01d", f1, f2, f3, f4);
     }
 
+    @Override
     public String getNossoNumeroFormatted() {
         return boleto.getCarteira() + "." + boleto.getNossoNumero() + "-" + boleto.getDvNossoNumero();
     }
